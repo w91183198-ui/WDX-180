@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Writing Modes Task 3: Logical Margin, Border, Padding</title>
+    <link rel="stylesheet" href="../styles.css"/>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      .vertical {
+        writing-mode: vertical-rl;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        border-top: 5px solid rebeccapurple;
+        border-right: 5px solid grey;
+        border-bottom: 5px dotted red;
+        border-left: 5px dotted blue;
+        padding-top: 40px;
+        margin-bottom: 30px;
+      }
+    </style>
+
+    <style>
+        /* RESULT LOOKS DIFFERENT THAT THE EXPECTED RESULT SHOWN IN THE TASK PAGE
+            ASSUMPTIONS:
+            (relative to the original translation form physical to logical)
+            vertical do the following: turns width to height and vise versa, turns top to end and turns bottom to start
+            rt do the following: turns left to end and turns right to start
+        */
+      .box {
+        block-size: 150px; 
+        inline-size: 150px;
+
+        border-inline-start: 5px solid rebeccapurple;
+        border-block-start: 5px solid grey;
+        border-inline-end: 5px dotted red;
+        border-block-end: 5px dotted blue;
+        padding-inline-start: 40px;
+        margin-inline-end: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="box">Horizontal.</div>
+    <div class="box vertical">Vertical.</div>
+
+  </body>
+
+</html>
