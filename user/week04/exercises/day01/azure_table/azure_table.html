@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        p{
+            font-size: 1.4rem;
+        }
+
+
+        table{
+            table-layout: fixed;
+            border-collapse: collapse;
+            border: 1px solid rgb(17, 123, 237);
+            border-top: 0px;
+            box-shadow: 10px 5px 5px rgb(34, 34, 34, 0.2);
+   
+        }
+
+        th{
+            color: white;
+             padding: 0.6em;
+        }
+
+
+        th:nth-child(odd){
+            background-color: rgb(65, 135, 241);
+        }
+
+        th:nth-child(even){
+            background-color: rgb(9, 70, 160);
+        }
+
+         td{
+            padding: 0.8em;
+        }
+
+        span.exam
+        {
+            display: block;
+            padding: 15px 0px;
+        }
+
+        .course
+        {
+            text-decoration: underline;
+        }
+
+  
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Course details for Azure fundamentals</h1>
+        <p>1 Instructor-led training course</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Exam titles</th>
+                    <th>Course title / training titles</th>
+                    <th>Course id</th>
+                    <th>Course duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Microsoft Azure Fundamentals <span class="exam"><a href="#">EXAM AZ-900</a></span>
+                    </td>
+                    <td>Microsoft Azure Fundamentals</td>
+                    <td class="course">AZ-900T01</td>
+                    <td>1 Day</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
