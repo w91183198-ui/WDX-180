@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font: 1.2em / 1.5 sans-serif;
+      }
+      .my-form {
+        border: 2px solid black;
+        padding: 5px;
+      }
+
+      input[name="btnSubmit"] {
+        background-color: #663399;
+        border: 0px;
+        font-size: inherit;
+        border-radius: 5px;
+        color: white;
+        padding: 10px;
+      }
+
+      input[name="keywords"] {
+        padding: 10px 0;
+        font-size: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" class="my-form" method="post">
+      <div>
+        <label for="fldSearch">Keywords</label>
+        <input id="fldSearch" name="keywords" type="search" />
+        <input name="btnSubmit" type="submit" value="Search" />
+      </div>
+    </form>
+  </body>
+</html>

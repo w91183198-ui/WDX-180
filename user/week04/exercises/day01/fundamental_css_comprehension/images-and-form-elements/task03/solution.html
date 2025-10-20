@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: white;
+        color: #333333;
+        font: 1em / 1.4 "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        padding: 1em;
+        margin: 0;
+        width: 500px;
+      }
+
+      /* Don't edit the code above here! */
+
+      /* Add your code here */
+
+      /*
+
+    Add some kind of lightweight "reset" to make fonts, padding, margin, and sizing more consistent to begin with, as described in Normalizing form behavior.
+    On top of that, add in some nice, consistent styling for the inputs and button.
+    Use some kind of layout technique to make the inputs and labels line up neatly.
+
+*/
+
+      input,
+      button,
+      textarea,
+      select {
+        font-family: inherit;
+        font-size: 100%;
+
+        margin: 0;
+        padding: 0;
+      }
+
+      form {
+        font-size: 120%;
+        font-family: sans-serif;
+        border: 3px solid rebeccapurple;
+        background-color: whitesmoke;
+        border-radius: 5px 10px;
+        padding: 20px;
+      }
+
+      li {
+        list-style-type: none;
+        padding: 5px 0;
+      }
+
+      h2 {
+        border-bottom: 2px solid #33333311;
+        letter-spacing: 1px;
+        color: rgb(121, 44, 199);
+      }
+      button {
+        border: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: rgb(121, 44, 199);
+        color: white;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        box-shadow: 2px 0px 3px black;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Edit your preferences</h2>
+      <ul>
+        <li>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+        </li>
+        <li>
+          <label for="website">Website:</label>
+          <input type="url" id="website" name="website" />
+        </li>
+        <li>
+          <label for="phone">Phone number:</label>
+          <input type="tel" id="phone" name="phone" />
+        </li>
+        <li>
+          <label for="food">Favorite food:</label>
+          <select name="food" id="food">
+            <option>Salad</option>
+            <option>Curry</option>
+            <option>Pizza</option>
+            <option>Fajitas</option>
+          </select>
+        </li>
+        <li>
+          <button>Update preferences</button>
+        </li>
+      </ul>
+    </form>
+  </body>
+</html>
