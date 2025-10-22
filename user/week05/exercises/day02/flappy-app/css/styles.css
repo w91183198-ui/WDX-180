@@ -1,0 +1,279 @@
+.upper {
+  text-transform: uppercase;
+}
+
+:root {
+  --color-accent: #47cccc;
+  --color-item-hover: #ffffff;
+  --color-background: #333333;
+  --color-dark-text: #333333;
+  --color-white: white;
+  --color-black: black;
+  --color-grey: grey;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  zoom: 0.6;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-background);
+  font-family: "Lato", sans-serif;
+  background-color: var(--color-black);
+
+  height: 100vh;
+}
+
+.mw1100 {
+  max-width: 1100px;
+}
+
+.flex-jc {
+  max-width: 1100px;
+}
+
+.container {
+  display: flex;
+  max-width: 1400px; /*remove*/
+  max-height: 90%;
+  background-color: var(--color-background);
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+.flex-r {
+  display: flex;
+  flex-direction: row;
+}
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
+}
+
+.flex3 {
+  flex: 3;
+}
+
+.flex4 {
+  flex: 4;
+}
+
+.jcc {
+  align-items: center;
+  justify-content: center;
+}
+
+.jcsb {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.jcsa {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.highlight {
+  color: var(--color-white);
+}
+
+.logo {
+  align-items: center;
+  font-size: 3rem;
+}
+
+.logo > img {
+  transform: scale(1.1);
+  margin-left: -8px;
+}
+
+.logo > span:last-child {
+  margin-left: -15px;
+}
+
+nav > ul {
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+header > section > span {
+  color: var(--color-accent);
+}
+
+.header__nav_ul > li {
+  font-weight: 300;
+  color: var(--color-accent);
+  border-bottom: 5px solid var(--color-accent);
+}
+
+.header__nav_ul > li:hover {
+  color: var(--color-item-hover);
+  border-bottom: 5px solid var(--color-white);
+}
+
+header {
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+header > section:first-child {
+  margin-left: 40px;
+}
+
+.header__nav_ul > li {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.header__nav_ul > li:not(li:last-child) {
+  padding-right: 15px;
+}
+
+main {
+  padding-bottom: 0px;
+  padding: 50px 20px;
+}
+
+main {
+  background-color: var(--color-white);
+}
+
+main ul > li {
+  color: var(--color-black);
+}
+
+.main__container {
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.main__image_section {
+  width: 100%;
+  height: 100%;
+}
+
+.main__nav {
+  box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.3), -1px -1px 5px rgb(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.main__image_section {
+  box-shadow: 2px 2px 1px rgb(0, 0, 0, 0.6),
+    -2px -2px 1px rgba(178, 178, 178, 0.6);
+}
+
+.main__nav_ul {
+  background-color: var(--color-accent);
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.main__nav_ul > li {
+  padding: 30px;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.main__nav_ul > li:first-child {
+  color: var(--color-accent);
+  background-color: var(--color-black);
+}
+
+main > div {
+  margin: 0px 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  align-self: center;
+}
+
+footer > div {
+  justify-content: flex-start;
+}
+
+footer > div > ul {
+  margin-bottom: 40px;
+  margin-right: 210px;
+  font-weight: 500;
+}
+
+footer > div > ul > li {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 20px;
+  color: var(--color-accent);
+}
+
+footer > div > ul > li:hover {
+  color: var(--color-white);
+}
+
+.footer__items {
+  display: flex;
+  padding: 30px 30px 0px 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+#desc {
+  margin-top: 20px;
+  align-self: center;
+  justify-content: center;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 40px 0;
+  color: var(--color-black);
+}
+
+.container,
+footer {
+  background-image: url("../images/border.png");
+  background-repeat: repeat-x;
+}
+
+#copy-right {
+  margin-bottom: 40px;
+  font-weight: bold;
+  background-color: var(--color-accent);
+  text-align: center;
+  font-size: 1rem;
+  padding: 5px;
+  color: var(--color-dark-text);
+}
+
+#img2 {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border: 3px solid var(--color-black);
+}
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        --text-color: white;
+        --counter-color: rgb(144, 144, 144);
+        --body-bg-color: #282828;
+        --data-color: #d0d0d0;
+        --data-valid-hover-color: #8f8f8f;
+        --data-valid-focus-color: #7c9dbd;
+        --data-border-color: #4c4c4c;
+        --data-placeholder-color: #767676;
+        --border-not-valid-color: #862e2a;
+      }
+
+      * {
+        box-sizing: border-box;
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        font-family: "Arial, Helvetica, sans-serif";
+
+        font-size: 1.6rem;
+        background-color: var(--body-bg-color);
+      }
+
+      input {
+        background-color: inherit;
+        color: inherit;
+        width: 60%;
+      }
+
+      .container__title,
+      .container__data,
+      .container__button {
+        margin: 20px 0px 0px 20px;
+        padding: 10px;
+        background-color: inherit;
+        color: var(--text-color);
+      }
+
+      .container__button {
+        background-color: var(--border-not-valid-color);
+        width: fit-content;
+      }
+
+      .container__data {
+        height: 40px;
+        padding: 10px;
+      }
+
+      input::placeholder {
+        color: var(--data-placeholder-color);
+      }
+
+      input:valid {
+        color: var(--data-color);
+        border: 1px solid var(--data-border-color);
+      }
+
+      input:valid:hover {
+        border: 1px solid var(--data-valid-hover-color);
+      }
+      input:valid:focus {
+        border: 1px solid var(--data-valid-focus-color);
+      }
+
+      input:invalid,
+      input:invalid:focus,
+      input:invalid:hover {
+        border: 1px solid var(--border-not-valid-color);
+      }
+
+      .container__counter {
+        margin-left: 20px;
+        color: var(--counter-color);
+        font-size: 1.3rem;
+      }
+
+      #data:invalid ~ .container__button {
+        display: block;
+      }
+
+      #data:valid ~ .container__button {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label class="container__title" for="data">Enter your message</label>
+      <input
+        class="container__data"
+        type="text"
+        name="data"
+        id="data"
+        placeholder="Placeholder: text here"
+        pattern="[A-Za-z0-9!@_\$\(\) \-]{1,30}"
+        required
+        oninput="document.getElementById('counter').textContent = this.value.length + ' / 30 characters';"
+      />
+
+      <span class="container__counter" id="counter">0 / 30 characters</span>
+
+      <p class="container__button">Error: Invalid input</p>
+    </div>
+  </body>
+</html>
