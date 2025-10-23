@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@utility radial-blue 
+{
+  background: radial-gradient(lightyellow, skyblue);
+}
