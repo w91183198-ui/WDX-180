@@ -1,0 +1,299 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+#wrapper > div {
+  width: calc(90vw / 3);
+  aspect-ratio: 2 / 1;
+  background-color: rgb(167, 148, 122);
+  margin: 5px;
+  border: 5px dotted #aaa;
+}
+
+#wrapper > div:nth-child(1) {
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+#wrapper > div:nth-child(1) > * {
+  background-color: yellow;
+}
+
+/*2*/
+#wrapper > div:nth-child(2) {
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+#wrapper > div:nth-child(2) > * {
+  background-color: yellow;
+}
+#wrapper > div:nth-child(2) > div:nth-child(1) {
+  grid-column: span 2;
+}
+#wrapper > div:nth-child(2) > div:nth-child(2) {
+  grid-row: span 2;
+}
+
+/*3*/
+
+#wrapper > div:nth-child(3) {
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+#wrapper > div:nth-child(3) > * {
+  background-color: yellow;
+}
+#wrapper > div:nth-child(3) > div:nth-child(1) {
+  grid-column: span 3;
+}
+#wrapper > div:nth-child(3) > div:nth-child(3) {
+  grid-column: span 2;
+}
+#wrapper > div:nth-child(3) > div:nth-child(4) {
+  grid-column: span 3;
+}
+
+/*4*/
+#wrapper > div:nth-child(4) {
+  background-color: red;
+  display: grid;
+  gap: 5px;
+  grid-template-areas:
+    "a a a b b b"
+    "a a a b b b"
+    "c c d d d d"
+    "c c d d d d"
+    "c c d d d d"
+    "c c d d d d"
+    "f f f f f f";
+}
+#wrapper > div:nth-child(4) > * {
+  background-color: yellow;
+}
+
+#wrapper > div:nth-child(4) > div:nth-child(1) {
+  grid-area: a;
+}
+#wrapper > div:nth-child(4) > div:nth-child(2) {
+  grid-area: b;
+}
+#wrapper > div:nth-child(4) > div:nth-child(3) {
+  grid-area: c;
+}
+#wrapper > div:nth-child(4) > div:nth-child(4) {
+  grid-area: d;
+}
+#wrapper > div:nth-child(4) > div:nth-child(5) {
+  grid-area: f;
+}
+
+/*5*/
+#wrapper > div:nth-child(5) {
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+}
+#wrapper > div:nth-child(5) > * {
+  background-color: yellow;
+}
+
+
+/*6*/
+#wrapper > div:nth-child(6) {
+  background-color: red;
+  display: grid;
+  gap: 5px;
+  grid-template-areas:
+    "a a b x"
+    "c d e ."
+    "f f g h"
+    "f f i ."
+    "j j j k"
+    ;
+}
+#wrapper > div:nth-child(6) > * {
+  background-color: yellow;
+}
+
+#wrapper > div:nth-child(6) > div:nth-child(1) {
+  grid-area: a;
+}
+#wrapper > div:nth-child(6) > div:nth-child(2) {
+  grid-area: b;
+}
+#wrapper > div:nth-child(6) > div:nth-child(3) {
+  grid-area: c;
+}
+#wrapper > div:nth-child(6) > div:nth-child(4) {
+  grid-area: d;
+}
+#wrapper > div:nth-child(6) > div:nth-child(5) {
+  grid-area: e;
+}
+#wrapper > div:nth-child(6) > div:nth-child(6) {
+  grid-area: f;
+}
+#wrapper > div:nth-child(6) > div:nth-child(7) {
+  grid-area: g;
+}
+#wrapper > div:nth-child(6) > div:nth-child(8) {
+  grid-area: h;
+}
+#wrapper > div:nth-child(6) > div:nth-child(9) {
+  grid-area: i;
+}
+#wrapper > div:nth-child(6) > div:nth-child(10) {
+  grid-area: j;
+}
+#wrapper > div:nth-child(6) > div:nth-child(11) {
+  grid-area: k;
+}
+#wrapper > div:nth-child(6) > div:nth-child(12) {
+  grid-area: x;
+}
+
+
+/*7*/
+#wrapper > div:nth-child(7) {
+  background-color: red;
+  display: grid;
+  gap: 5px;
+  grid-template-areas:
+    "a b"
+    "c d"
+}
+#wrapper > div:nth-child(7) > * {
+  background-color: yellow;
+}
+
+#wrapper > div:nth-child(7) > div:nth-child(1) {
+  grid-area: a;
+}
+#wrapper > div:nth-child(7) > div:nth-child(2) {
+  grid-area: b;
+}
+#wrapper > div:nth-child(7) > div:nth-child(3) {
+  grid-area: c;
+}
+#wrapper > div:nth-child(7) > div:nth-child(4) {
+  grid-area: d;
+}
+
+
+#wrapper > div:nth-child(7) > div:nth-child(4) {
+  display: grid;
+    background-color: red;
+  grid-template-areas: 
+    "a a"
+    "b c";
+  gap: 3px;
+}
+#wrapper > div:nth-child(7) > div:nth-child(4) > *  {
+  background-color: rgb(241, 241, 97);
+}
+#wrapper > div:nth-child(7) > div:nth-child(4) > div:nth-child(1) {
+  grid-area: a;
+}
+#wrapper > div:nth-child(7) > div:nth-child(4) > div:nth-child(2) {
+  grid-area: b;
+}
+#wrapper > div:nth-child(7) > div:nth-child(4) > div:nth-child(3) {
+  grid-area: c;
+}
+
+
+
+/*8*/
+#wrapper > div:nth-child(8) {
+  background-color: red;
+  display: grid;
+  gap: 5px;
+  grid-template-areas:
+    "a b c d e"
+    "x f g g g"
+    "h h h h h"
+    ;
+}
+#wrapper > div:nth-child(8) > * {
+  background-color: yellow;
+}
+
+#wrapper > div:nth-child(8) > div:nth-child(1) {
+  grid-area: a;
+}
+#wrapper > div:nth-child(8) > div:nth-child(2) {
+  grid-area: b;
+}
+#wrapper > div:nth-child(8) > div:nth-child(3) {
+  grid-area: c;
+}
+#wrapper > div:nth-child(8) > div:nth-child(4) {
+  grid-area: d;
+}
+#wrapper > div:nth-child(8) > div:nth-child(5) {
+  grid-area: x;
+}
+
+#wrapper > div:nth-child(8) > div:nth-child(6) {
+  grid-area: e;
+}
+#wrapper > div:nth-child(8) > div:nth-child(7) {
+  grid-area: f;
+}
+#wrapper > div:nth-child(8) > div:nth-child(8) {
+  grid-area: g;
+}
+#wrapper > div:nth-child(8) > div:nth-child(9) {
+  grid-area: h;
+}
+
+
+
+
+/*9*/
+#wrapper > div:nth-child(9) {
+  background-color: red;
+  display: grid;
+  gap: 5px;
+  grid-template-areas:
+    "a a a a"
+    "b b c c"
+    "b b d e"
+    ;
+}
+#wrapper > div:nth-child(9) > * {
+  background-color: yellow;
+}
+
+#wrapper > div:nth-child(9) > div:nth-child(1) {
+  grid-area: a;
+}
+#wrapper > div:nth-child(9) > div:nth-child(2) {
+  grid-area: b;
+}
+#wrapper > div:nth-child(9) > div:nth-child(3) {
+  grid-area: c;
+}
+#wrapper > div:nth-child(9) > div:nth-child(4) {
+  grid-area: d;
+}
+#wrapper > div:nth-child(9) > div:nth-child(5) {
+  grid-area: e;
+}

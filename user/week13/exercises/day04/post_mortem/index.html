@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Mortem #1</title>
+</head>
+
+<body>
+
+  <!-- EXPECTED HTML: What we want to see -->
+  <!-- 
+    <h1>
+      SUNT AUT FACERE REPELLAT PROVIDENT OCCAECATI EXCEPTURI OPTIO REPREHENDERIT
+    </h1> 
+  -->
+
+  <pre>
+    Instructions:
+
+    - There's something wrong in here
+    - Debug and trace any errors
+    - Write a post mortem report
+
+    Report:
+
+    - ERROR: Error message and short description
+    - FIX: How you were able to detect and fix
+    - AVOID: How to avoid the same error in the future
+	
+	<p style="font-size: 105%; text-wrap: wrap; line-s">
+    <span style="font-weight: bold;">- ERROR:</span> <span style="font-weight: bold;">[index.html:52 Uncaught SyntaxError: Unexpected token '.'</span>, An extra semicolon is in the code which caused the parser to think that its the end of he statment while in fact there is a complement for the code in the next line which happens to start with a dot, which doesn't make sense for js.
+    <span style="font-weight: bold;">- FIX:</span> Remove the extra semicolon at the end of line 51.
+    <span style="font-weight: bold;">- AVOID:</span> Use code editor where it possible to use toos such as linters which can detect such typos early in the development process, constantly check the console logger in the browser for any unexpected messages or behavoiur.
+	</p>
+  </pre>
+
+  <script>
+    function initializeApp(){
+
+      console.log("Launching app...");
+
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then(res => {
+          // Let's grab the JSON response from the API:
+          res.json();
+        })
+        .then(data => {
+          const firstPostTile = data[0].title;
+          const firstPostTitleUpperCase = firstPostTile.toUpperCase();
+          return firstPostTitleUpperCase;
+        });
+        .then(title => {
+          document.body.innerHTML += `<h1>{title}</h1>`
+        })
+        .catch( e => console.log(e) );
+
+    }
+
+    initializeApp();
+  </script>
+</body>
+
+</html>
