@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <script>
+        var object = {name: 'elvis', title: 'hip swinger'}
+        
+        const {name: person = "elvis", title: job = "hip swinger"} = object;
+        console.log(person, job);
+    </script>
+
+
+         <script>
+        var items = ['apple', 'banana', 'pear']
+
+        const [b,a, ] = items;
+        console.log(a, b);
+    </script>
+
+
+         <script>
+        var object = {
+        user: 'brenna',
+        id: 1,
+        date: 'monday',
+        module: 3
+        }
+
+        const {user, id, date, module} = object;
+        console.log(user);
+    </script>
+
+         <script>
+        var object1 = {
+            user: 'elvis',
+            address: {
+                city: 'denver',
+                state: 'colorado'
+            },
+            id: 1
+        }
+
+
+        const {user, address: {city}, address: {state}, id} = object1;
+        
+        console.log(user, city, state, id);
+    </script>
+
+
+
+         <script>
+var object = {name: 'elvis', title: 'hip swinger'}
+
+const {name, title} = object;
+console.log(name, title);
+    </script>
+
+
+
+
+         <script>
+var singers = [
+  {
+    artist: 'Elvis',
+    albums: {
+      album1: 'this first title for Elvis',
+      album2: 'another second title for Elvis',
+      album3: 'third title for Elvis'
+    }
+  },
+  {
+    artist: 'Cher',
+    albums: {
+      album1: 'this first title for Cher',
+      album2: 'another second title for Cher',
+      album3: 'third title for Cher'
+    }
+  }
+]
+
+for(let s of singers)
+{
+    const {artist, albums: {album3}} = s
+    console.log(artist, album3);
+}
+    </script>
+-->
+
+
+
+     <script>
+const ninetiesToys = [
+  {
+      name: "Tamagotchi",
+      releaseYear: 1996,
+      price: 15.99
+  },
+  {
+      name: "Furby",
+      releaseYear: 1998,
+      price: 29.99
+  },
+  {
+      name: "Super Soaker",
+      releaseYear: 1989,
+      price: 19.99
+  },
+  {
+      name: "Pogs",
+      releaseYear: 1991,
+      price: 5.99
+  },
+  {
+      name: "Game Boy",
+      releaseYear: 1989,
+      price: 89.99
+  }
+];
+
+function findCheapToys(items = ninetiesToys)
+{
+    let results = [];
+    items.forEach(v => {
+        if(v.price < 20)
+            results.push(v.name);
+    });
+    return results;
+}
+
+function findCheapToys_MapFilter(items = ninetiesToys)
+{
+    return items.filter(v => v.price < 20).map(v => v.name);
+}
+
+function findCheapToys_Reduce(items = ninetiesToys) 
+{
+    return items.reduce((results, v) => {
+        if(v.price < 20)
+            results.push(v.name);
+        return results;
+    }, []);
+}
+
+console.log(findCheapToys());
+console.log(findCheapToys_MapFilter());
+console.log(findCheapToys_Reduce());
+
+console.log(findCheapToys_Reduce([{name: "a", releaseYear: 2010, price: 19}, {name: "b", releaseYear: 2011, price: 27}]));
+   
+   
+   
+ const eightiesToys = [
+  {
+    name: "Rubik's Cube",
+    releaseYear: 1980,
+    price: 9.99
+  },
+  {
+    name: "Transformers",
+    releaseYear: 1984,
+    price: 19.99
+  },
+  {
+    name: "My Little Pony",
+    releaseYear: 1983,
+    price: 12.99
+  },
+  {
+    name: "Cabbage Patch Kids",
+    releaseYear: 1982,
+    price: 24.99
+  },
+  {
+    name: "Nintendo Entertainment System",
+    releaseYear: 1985,
+    price: 89.99
+  },
+  {
+    name: "He-Man and the Masters of the Universe",
+    releaseYear: 1982,
+    price: 14.99
+  }
+];
+  
+   console.log(findCheapToys(eightiesToys));
+console.log(findCheapToys_MapFilter(eightiesToys));
+console.log(findCheapToys_Reduce(eightiesToys));
+   </script>
+</body>
+</html>

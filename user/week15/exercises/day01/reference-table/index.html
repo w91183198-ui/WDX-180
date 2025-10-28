@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --color: #fef9dc;
+        --color-bg: #0d0d0f;
+        --color-sel: #202d33;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scrollbar-gutter: stable;
+      }
+      body {
+        font-family: sans-serif;
+        color: var(--color);
+        background-color: var(--color-bg);
+        width: 90vw;
+      }
+
+      .wrapper {
+        background-color: var(--color-bg);
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      table {
+        border-collapse: collapse;
+        background-color: var(--color-bg);
+
+        width: 480px;
+        height: 320px;
+      }
+
+      thead th:nth-child(2),
+      th:nth-child(3),
+      th:nth-child(4) {
+        border-left: 3px solid grey;
+      }
+
+      thead th {
+        border-bottom: 1px solid grey;
+      }
+
+      tbody th {
+        border-right: 1px solid grey;
+      }
+
+      td:nth-child(2),
+      td:nth-child(3) {
+        border-right: 1px solid grey;
+      }
+
+      thead tr {
+        background-color: var(--color-sel);
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: var(--color-sel);
+      }
+
+      td {
+        padding: 5px 45px;
+      }
+
+      .title {
+        font-size: 3rem;
+        word-spacing: -0.5rem;
+        text-transform: uppercase;
+        letter-spacing: -0.1rem;
+        font-weight: bolder;
+        margin-bottom: 20px;
+      }
+
+      .title > span {
+        font-weight: bold;
+        font-size: 1.6rem;
+      }
+
+      tbody th {
+        text-transform: capitalize;
+        text-align: left;
+        font-size: 0.9rem;
+      }
+
+      th {
+        padding: 20px 10px;
+        border-radius: 5px;
+      }
+
+      dialog > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      tr.sample > td {
+        width: 96%;
+      }
+
+      tr.sample {
+        display: none;
+      }
+
+      tr.sample.expanded {
+        display: table-row;
+      }
+
+      pre[class*="language-"] {
+        font-size: 70%;
+      }
+
+      table {
+        table-layout: fixed; /* ensures equal column widths */
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (x) => {
+        function hideAllCodeRows() {
+          const trs = document.querySelectorAll("tbody tr[id^='tr']");
+
+          for (const tr of trs) {
+            if (tr.nextSibling && tr.nextSibling.nextSibling) {
+              tr.nextSibling.nextSibling.classList.remove("expanded");
+            }
+          }
+        }
+
+        document.querySelector("body").addEventListener("click", (e) => {
+          hideAllCodeRows();
+        });
+
+        const trs = document.querySelectorAll("tbody tr[id^='tr']");
+        for (const tr of trs) {
+          tr.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            hideAllCodeRows();
+            if (!(e.currentTarget.nextSibling && e.currentTarget.nextSibling))
+              return;
+
+            e.currentTarget.nextSibling.nextSibling.classList.add("expanded");
+
+            const codeBlock =
+              e.currentTarget.nextSibling.nextSibling.firstChild.nextSibling
+                .firstChild.nextSibling;
+  
+            Prism.highlightElement(codeBlock);
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">var <span>vs</span> let <span>vs</span> const</div>
+      <div>
+        <table>
+          <caption></caption>
+          <thead>
+            <tr>
+              <th></th>
+              <th>var</th>
+              <th>let</th>
+              <th>const</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="tr1" class="clickable-row">
+              <th>stored in global context</th>
+              <td><span class="uni">&#x2705;</span></td>
+              <td>&#x274C;</td>
+              <td>&#x274C;</td>
+            </tr>
+            <tr class="sample">
+              <td colspan="4">
+                <pre>
+                  <code class="language-javascript">
+// 🟩 1. STORED IN GLOBAL CONTEXT
+console.log("=== 1. Stored in Global Context ===");
+                  
+var globalVar = "I'm global with var";  // ✅ attached to window/globalThis
+let globalLet = "I'm not global with let";  // ❌ not attached
+const globalConst = "I'm not global with const"; // ❌ not attached
+                  
+console.log("window.globalVar:", window.globalVar); // ✅ visible
+console.log("window.globalLet:", window.globalLet); // ❌ undefined
+console.log("window.globalConst:", window.globalConst); // ❌ undefined
+console.log("");
+                    </code>
+                </pre>
+              </td>
+            </tr>
+
+            <tr id="tr2">
+              <th>function scope</th>
+              <td>&#x2705;</td>
+              <td>&#x2705;</td>
+              <td>&#x2705;</td>
+            </tr>
+
+            <tr class="sample">
+              <td colspan="4">
+                <pre>
+                  <code class="language-javascript">
+// 🟩 2. FUNCTION SCOPE
+console.log("=== 2. Function Scope ===");
+                  
+function testScope() {
+  var a = "var inside function";
+  let b = "let inside function";
+  const c = "const inside function";
+  console.log("Inside function:", a, b, c);
+}
+testScope();
+                  
+try { console.log(a); } catch { console.log("a not accessible outside function ✅"); }
+try { console.log(b); } catch { console.log("b not accessible outside function ✅"); }
+try { console.log(c); } catch { console.log("c not accessible outside function ✅"); }
+console.log("");</code>
+                </pre>
+              </td>
+            </tr>
+
+            <tr id="tr3">
+              <th>block scope</th>
+              <td>&#x274C;</td>
+              <td>&#x2705;</td>
+              <td>&#x2705;</td>
+            </tr>
+
+            <tr class="sample">
+              <td colspan="4">
+                <pre>
+                  <code class="language-javascript">
+// 🟩 3. BLOCK SCOPE
+console.log("=== 3. Block Scope ===");
+                  
+if (true) {
+  var x = "var block";
+  let y = "let block";
+  const z = "const block";
+  console.log("Inside block:", x, y, z);
+}
+console.log("Outside block var:", x); // ✅ var leaks out
+try { console.log(y); } catch { console.log("let not accessible outside block ✅"); }
+try { console.log(z); } catch { console.log("const not accessible outside block ✅"); }
+console.log("");
+                  </code>
+                </pre>
+              </td>
+            </tr>
+
+            <tr id="tr4">
+              <th>can be reassigned?</th>
+              <td>&#x2705;</td>
+              <td>&#x2705;</td>
+              <td>&#x274C;</td>
+            </tr>
+
+            <tr class="sample">
+              <td colspan="4">
+                <pre>
+                  <code class="language-javascript">
+// 🟩 4. CAN BE REASSIGNED
+console.log("=== 4. Can Be Reassigned ===");
+                  
+var countVar = 1;
+let countLet = 1;
+const countConst = 1;
+                  
+countVar = 2; // ✅
+countLet = 2; // ✅
+try { countConst = 2; } catch { console.log("const cannot be reassigned ❌"); }
+                  
+console.log("var:", countVar, "| let:", countLet, "| const:", countConst);
+console.log("");
+                  </code>
+                </pre>
+              </td>
+            </tr>
+            <tr id="tr5">
+              <th>can be redeclared?</th>
+              <td>&#x2705;</td>
+              <td>&#x274C;</td>
+              <td>&#x274C;</td>
+            </tr>
+
+            <tr class="sample">
+              <td colspan="4">
+                <pre>
+                  <code class="language-javascript">
+// 🟩 5. CAN BE REDECLARED
+console.log("=== 5. Can Be Redeclared ===");
+                  
+var redeclareVar = "first";
+var redeclareVar = "second"; // ✅ allowed
+console.log("var redeclared:", redeclareVar);
+                  
+try {
+  let redeclareLet = "first";
+  let redeclareLet = "second"; // ❌
+} catch (err) {
+  console.log("let cannot be redeclared ❌");
+}
+                  
+try {
+  const redeclareConst = "first";
+  const redeclareConst = "second"; // ❌
+} catch (err) {
+  console.log("const cannot be redeclared ❌");
+}
+console.log("");
+                  </code>
+                </pre>
+              </td>
+            </tr>
+
+            <tr id="tr6">
+              <th>can be hoisted?</th>
+              <td>&#x2705;</td>
+              <td>&#x274C;</td>
+              <td>&#x274C;</td>
+            </tr>
+            <tr class="sample">
+              <td colspan="4">
+                <pre>
+                  <code class="language-javascript">
+// 🟩 6. HOISTING
+console.log("=== 6. Hoisting ===");
+                  
+console.log("var before declaration:", aVar); // ✅ undefined
+var aVar = "I’m hoisted";
+                  
+try {
+  console.log("let before declaration:", aLet); // ❌ TDZ
+  let aLet = "Not hoisted";
+} catch {
+  console.log("let cannot be accessed before declaration ❌");
+}
+                  
+try {
+  console.log("const before declaration:", aConst); // ❌ TDZ
+  const aConst = "Not hoisted";
+} catch {
+  console.log("const cannot be accessed before declaration ❌");
+}
+                  </code>
+                </pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
